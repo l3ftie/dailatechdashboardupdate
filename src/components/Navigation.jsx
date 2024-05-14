@@ -9,27 +9,27 @@ const MenuLinks = [
   {
     id: 1,
     title: "Dashboard",
-    toLink: "/dashboard",
+    toLink: "/",
   },
   {
     id: 2,
     title: "Bookings",
-    toLink: "/bookings",
+    toLink: "bookings",
   },
   {
     id: 3,
     title: "Clients",
-    toLink: "/clients",
+    toLink: "clients",
   },
   {
     id: 4,
     title: "Providers",
-    toLink: "/providers",
+    toLink: "providers",
   },
   {
     id: 5,
     title: "Payments",
-    toLink: "/payments",
+    toLink: "payments",
   },
 ];
 
@@ -61,7 +61,7 @@ export const Navigation = () => {
         </div>
         <div>
           <h3 className="text-gray-50 font-semibold text-2xl">Settings</h3>
-          <Link to="/profile" className="text-gray-50 group transition-all hover:text-yellow-300 flex justify-between">
+          <Link to="profile" className="text-gray-50 group transition-all hover:text-yellow-300 flex justify-between">
             My Profile
             <span className="">
               <VscArrowSmallRight />
