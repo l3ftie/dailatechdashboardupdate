@@ -16,37 +16,27 @@ import {
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <ProtectedRoute>
-        <SharedLayout />
-      </ProtectedRoute>
-    ),
-    children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "/bookings",
-        element: <Booking />,
-      },
-      {
-        path: "/clients",
-        element: <Clients />,
-      },
-      {
-        path: "/providers",
-        element: <Providers />,
-      },
-      {
-        path: "/payments",
-        element: <Payments />,
-      },
-      {
-        path: "/profile",
-        element: <Profile />,
-      },
-    ],
+    element: <Home />,
+  },
+  {
+    path: "/bookings",
+    element: <Booking />,
+  },
+  {
+    path: "/clients",
+    element: <Clients />,
+  },
+  {
+    path: "/providers",
+    element: <Providers />,
+  },
+  {
+    path: "/payments",
+    element: <Payments />,
+  },
+  {
+    path: "/profile",
+    element: <Profile />,
   },
   {
     path: "/login",
@@ -58,7 +48,11 @@ const router = createBrowserRouter([
   },
 ]);
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <div>
+      <RouterProvider router={router} />;
+    </div>
+  );
 }
 
 export default App;
