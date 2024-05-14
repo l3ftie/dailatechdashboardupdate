@@ -8,9 +8,9 @@ function App() {
         <Route
           path="/dashboard"
           element={
-            <ProtectedRoute>
-              <SharedLayout />
-            </ProtectedRoute>
+            // <ProtectedRoute>
+            <SharedLayout />
+            // </ProtectedRoute>
           }
         >
           <Route index element={<Home />} />
