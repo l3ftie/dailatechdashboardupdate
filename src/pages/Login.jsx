@@ -36,7 +36,7 @@ const Login = () => {
   useEffect(() => {
     if (user) {
       setTimeout(() => {
-        navigate("/dashboard");
+        navigate("/");
       }, 3000);
     }
   }, [user, navigate]);
@@ -46,9 +46,7 @@ const Login = () => {
       <div className="w-full max-w-md space-y-8">
         <div>
           <img className="mx-auto h-12 w-auto" src={Logo} alt="Your Company" />
-          <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-            Let's get started
-          </h2>
+          <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Let's get started</h2>
           <p className="text-center mt-2">Sign into your account</p>
         </div>
         {showAlert && <Alert />}

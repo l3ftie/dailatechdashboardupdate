@@ -3,7 +3,7 @@ import { useAppContext } from "../context/appContext";
 
 const NavBar = () => {
   const { user } = useAppContext();
-  console.log(user);
+
   return (
     <div className="bg-gray-800 py-2">
       <h4 className="text-gray-50 font-semibold text-2xl">
