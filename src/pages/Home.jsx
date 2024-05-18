@@ -7,7 +7,7 @@ import Wrapper from "../components/Wrapper";
 import { useAppContext } from "../context/appContext";
 
 const Home = () => {
-  const { allStats, getAllStats } = useAppContext();
+  const { allStats, getAllStats, isLoading } = useAppContext();
 
   useEffect(() => {
     getAllStats();
@@ -21,9 +21,9 @@ const Home = () => {
         </div>
         {/* cards */}
         <div className="grid md:grid-cols-4 p-2 md:p-6 gap-3">
-          {Object.keys(allStats).length === 0
+          {isLoading || Object.keys(allStats).length === 0
             ? [...Array(9)].map((_, i) => (
-                <div className="bg-gray-800 rounded-lg p-4">
+                <div key={i} className="bg-gray-800 rounded-lg p-4">
                   <div className="text-xl h-9 w-full font-semibold bg-yellow-300 rounded-md mb-3 animate-pulse" />
                   <p className="bg-white h-9 w-14 rounded-md animate-pulse"></p>
                 </div>
