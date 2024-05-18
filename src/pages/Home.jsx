@@ -21,15 +21,18 @@ const Home = () => {
         </div>
         {/* cards */}
         <div className="grid md:grid-cols-4 p-2 md:p-6 gap-3">
-          <DashCard title="Users" value={allStats.totalClients} />
-          <DashCard title="Artisans" value={allStats.totalProviders} />
-          <DashCard title="Bookings" value={allStats.totalJobs} />
-          <DashCard title="Categories" value={allStats.totalCategories} />
-          <DashCard title="Bookings Completed" value={allStats.totalJobsCompleted} />
-          <DashCard title="Bookings Pending" value={allStats.totalPendingJobs} />
-          <DashCard title="Bookings Canceled" value={allStats.totalCanceledJobs} />
-          <DashCard title="Pending Sales" value={allStats.totalPendingSales} currency />
-          <DashCard title="Total Sales" value={allStats.totalSales} currency />
+          {Object.keys(allStats).length === 0
+            ? [...Array(9)].map((_, i) => (
+                <div className="bg-gray-800 rounded-lg p-4">
+                  <div className="text-xl h-9 w-full font-semibold bg-yellow-300 rounded-md mb-3 animate-pulse" />
+                  <p className="bg-white h-9 w-14 rounded-md animate-pulse"></p>
+                </div>
+              ))
+            : Object.keys(allStats).map((key) => (
+                <div key={key}>
+                  <DashCard title={allStats[key].title} value={allStats[key].value} />
+                </div>
+              ))}
         </div>
         {/* recent providers and clients */}
         <section className="grid md:grid-cols-2 gap-3 h-full ">

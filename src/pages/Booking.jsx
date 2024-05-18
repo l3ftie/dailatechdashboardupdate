@@ -67,39 +67,46 @@ const Booking = () => {
         </div>
         {/* data */}
         <section className="px-2 mt-4 md:px-6">
-          {isLoading && !selectedBookings && (
-            <div className=" h-full w-full">
-              <p>Loading</p>
+          {isLoading ? (
+            <div className="min-h-full mt-12 ">
+              <div className=" flex w-full h-full flex-col items-center justify-center">
+                <div className="h-8 w-8 rounded-full bg-yellow-300 animate-bounce"></div>
+                <p className="animate-pulse text-xl font-semibold text-gray-800">Please wait loading...</p>
+              </div>
+            </div>
+          ) : (
+            <div className="grid grid-flow-row gap-2">
+              {selectedBookings.length > 0 && !isLoading ? (
+                selectedBookings.map((booking, i) => (
+                  <div
+                    key={i}
+                    className="border border-state-300 p-2 md:p-6 rounded-md cursor-pointer hover:bg-gray-100"
+                  >
+                    <div className="flex items-center justify-between">
+                      <h3 className="font-semibold text-base text-gray-800">{booking.bookingTitle}</h3>
+                      <span className="text-teal-500">{booking.priority ? <BsFillLightningChargeFill /> : <></>}</span>
+                    </div>
+                    <hr className="my-2" />
+                    <div className="grid grid-cols-2">
+                      <div>
+                        <p>
+                          Date/Time: {booking.selectedDate} at {booking.selectedTime}
+                        </p>
+                        <p>Payment: {booking.payment}</p>
+                      </div>
+                      <div className="text-end">
+                        <p className="text-2xl font-semibold">{booking.total}</p>
+                        <p className="text-sm">USD</p>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div>No {selected} Bookings found...</div>
+              )}
             </div>
           )}
           {/*  */}
-          <div className="grid grid-flow-row gap-2">
-            {selectedBookings.length > 0 && !isLoading ? (
-              selectedBookings.map((booking, i) => (
-                <div key={i} className="border border-state-300 p-2 md:p-6 rounded-md cursor-pointer hover:bg-gray-100">
-                  <div className="flex items-center justify-between">
-                    <h3 className="font-semibold text-base text-gray-800">{booking.bookingTitle}</h3>
-                    <span className="text-teal-500">{booking.priority ? <BsFillLightningChargeFill /> : <></>}</span>
-                  </div>
-                  <hr className="my-2" />
-                  <div className="grid grid-cols-2">
-                    <div>
-                      <p>
-                        Date/Time: {booking.selectedDate} at {booking.selectedTime}
-                      </p>
-                      <p>Payment: {booking.payment}</p>
-                    </div>
-                    <div className="text-end">
-                      <p className="text-2xl font-semibold">{booking.total}</p>
-                      <p className="text-sm">USD</p>
-                    </div>
-                  </div>
-                </div>
-              ))
-            ) : (
-              <div>No {selected} Bookings found...</div>
-            )}
-          </div>
         </section>
       </div>
     </Wrapper>
